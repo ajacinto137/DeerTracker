@@ -39,16 +39,19 @@ def test():
                         newDict[date[i]] = time[temp:i+1]
                         print("----------------------------------------")
                         print("Temp is now " + str(temp))
+                        print("The Date is now" + str(date[i]))
                         print("i is " + str(i))
                         print(time[temp:i+1])
                         print("----------------------------------------")
                         temp = i+1
                         print(newDict)
-                        plt.hist(newDict.get(date[i]),bins=24)  # `density=False` would make counts
+                        plt.hist(newDict.get(date[i]),bins=24, range=[0,24])  # `density=False` would make counts
                         plt.ylabel('Hits')
                         plt.xlabel('Hour')
+                        plt.title(date[i])
                         plt.show()
                 if i == len(date)-2:
+                        print("*************************************************")
                         print("----------------------------------------")
                         print("Temp is now " + str(temp))
                         print(time[temp:-1])
@@ -61,6 +64,7 @@ def test():
                         plt.hist(newDict.get(date[i]),bins=24)  # `density=False` would make counts
                         plt.ylabel('Hits')
                         plt.xlabel('Hour')
+                        plt.title(date[i])
                         plt.show()
         # print(newDict)
 
