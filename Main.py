@@ -14,7 +14,7 @@ for filename in os.listdir(directory):
         # print(exif_data)
         date.append(exif_data[0:10])
         # time is in hours
-        time.append(exif_data[11:13])
+        time.append(int(exif_data[11:13]))
         # print(exif_data[11:16])
 
 
@@ -32,6 +32,7 @@ print(len(date))
 
 
 newDict={}
+hour_ticks =[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 def test():
         temp = 0
         for i in range(len(date)-1):
@@ -45,7 +46,8 @@ def test():
                         print("----------------------------------------")
                         temp = i+1
                         print(newDict)
-                        plt.hist(newDict.get(date[i]),bins=24, range=[0,24])  # `density=False` would make counts
+                        plt.hist(newDict.get(date[i]),bins=23, range=[0,23],align='right', rwidth=0.8)  # `density=False` would make counts
+                        plt.xticks(hour_ticks)
                         plt.ylabel('Hits')
                         plt.xlabel('Hour')
                         plt.title(date[i])
@@ -61,7 +63,8 @@ def test():
                         # print("\n")
                         # print("\n")
                         # print("\n")
-                        plt.hist(newDict.get(date[i]),bins=24)  # `density=False` would make counts
+                        plt.hist(newDict.get(date[i]), bins=23, range=[0, 23], align='right',rwidth=0.8)  # `density=False` would make counts
+                        plt.xticks(hour_ticks)
                         plt.ylabel('Hits')
                         plt.xlabel('Hour')
                         plt.title(date[i])
