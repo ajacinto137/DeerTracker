@@ -39,7 +39,6 @@ def test():
                 if date[i+1] != date [i]:
                         newDict[date[i]] = time[temp:i+1]
                         print("----------------------------------------")
-                        print("Temp is now " + str(temp))
                         print("The Date is now" + str(date[i]))
                         print("i is " + str(i))
                         print(time[temp:i+1])
